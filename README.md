@@ -27,8 +27,8 @@
 - last name : 유저 성(姓) 필드입니다.
   - 유저의 이름을 first name과 last name으로 나눈 것은 이후 Facebook, Google등  Social Account와 연결시킬 때 해외 서비스들이 전달하는 유저 정보가 이름을 first name, last name으로 나누어 전달하기 때문에, 이를 용이하게 받기 위함입니다.
 - email : email 필드입니다.
-- phone number : 전화번호 필드입니다.
-  - phone number를 " - " 없이 입력하도록 합니다. ( ex) +41524204242 )
+- phone number : 전화번호 필드입니다.(character field)
+  - phone number를 " - " 없이 입력하도록 합니다. (ex) 41524204242 )
 
 ### 2. Movie
 
