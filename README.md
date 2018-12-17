@@ -1,3 +1,60 @@
+## 예약 API(iOS전용)
+
+### 1. 예약 가능 영화 리스트
+
+- URL : api/tickets/m/movies/
+- GET method
+- Header에 토큰 필요
+
+### 2. 예약 필터
+
+- URL: api/tickets/m/filter/<int : pk>/
+- 1단계 혹은 영화 차트에서 고른 영화의 pk 를 URL에 전달해야합니다.
+- GET method
+  - 2개 파라미터를 전달하여 출력되는 결과를 바꿀 수 있습니다. (선택적, 필수 아님)
+  - "location" : "서울"
+  - "time" : "2018-12-18" 
+- Header 에 토큰 필요
+- Header에 Content-Type application/json 필요
+
+### 3. 좌석 선택
+
+- URL: api/tickets/m/seats/<int : pk>/
+- 이전 단계에서 고른 상영 시간의 pk를 URL로 받아야합니다.
+- GET method
+- Header에 토큰 필요
+
+### 4. 예약 생성
+
+- URL : api/tickets/m/reservations/
+- 이전 단계에서 고른 좌석의 pk들과 2단계에서 골랐던 pk(3단계가 전달받았던) 상영시간 pk 2개를 받아야합니다.
+- GET method
+  - "screen" : 상영시간 pk
+  - "seats" : [ "선택 좌석 pk" , "선택 좌석 pk", ...] (Array 자료형)
+- Header에 토큰 필요
+- Header에 Content-Type application/json 필요
+
+
+
+### 유저 예매 내역은 이전에 만든 것과 동일합니다 
+
+- URL : api/members/reservations/<int : pk> /
+- Header 에 토큰 필요
+- URL 마지막의 pk 는 예매 취소 시에만 추가하면 됩니다.(pk는 해당 예약의 pk(=예매번호))
+- GET method : 유저의 예매 내역 리스트가 돌아옵니다.
+- PATCH method (URL에 pk전달 필수):  전달한 pk 에 해당하는 예약의 is_active가 비활성화됩니다.
+
+
+
+
+
+
+
+
+
+
+
+
 - 메인 페이지에 Response가 리턴됩니다.
   - Front(Web), iOS(App)용 URL이 다릅니다. 전달되는 요소는 크게 다르지 않습니다.
   - Web : 본래 도메인 주소 그대로 가면 됩니다.(뒤에 아무것도 넣지 않습니다)
