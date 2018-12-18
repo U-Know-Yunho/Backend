@@ -29,8 +29,10 @@
 - URL : api/tickets/m/reservations/
 - 이전 단계에서 고른 좌석의 pk들과 2단계에서 골랐던 pk(3단계가 전달받았던) 상영시간 pk 2개를 받아야합니다.
 - GET method
-  - "screen" : 상영시간 pk
-  - "seats" : [ "선택 좌석 pk" , "선택 좌석 pk", ...] (Array 자료형)
+  - {
+      "screen" : 상영시간 pk,
+  -   "seats" : [ 선택 좌석 pk , 선택 좌석 pk, ...] (Array 자료형)
+    }
 - Header에 토큰 필요
 - Header에 Content-Type application/json 필요
 
